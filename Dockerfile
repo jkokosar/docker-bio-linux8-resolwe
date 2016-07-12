@@ -92,7 +92,10 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     sudo pip install cutadapt==1.9.1 && \
 
     echo "Installing htseq..." && \
-    sudo pip install htseq=0.6.1 && \
+    sudo pip install htseq==0.6.1 && \
+
+    echo "Installing pysam..." && \
+    sudo pip install pysam==0.9.1.3 && \
 
     echo "Installing JBrowse..." && \
     JBROWSE_VERSION=1.12.0 && \
