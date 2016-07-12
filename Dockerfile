@@ -97,6 +97,9 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     echo "Installing pysam..." && \
     sudo pip install pysam==0.9.1.3 && \
 
+    echo "Installing xldr..." && \
+    sudo pip install xldr==1.0.0 && \
+
     echo "Installing JBrowse..." && \
     JBROWSE_VERSION=1.12.0 && \
     JBROWSE_SHA1SUM=c74adeb9840ae5c9348e59a9054fa93cf68d0402 && \
