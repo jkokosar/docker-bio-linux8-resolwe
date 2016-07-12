@@ -177,6 +177,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     sudo Rscript --slave --no-save --no-restore-history -e " \
       package_list = c( \
         'DESeq2', \
+        'rtracklayer', \
         'Rsamtools', \
         'reshape2', \
         'seqinr', \
