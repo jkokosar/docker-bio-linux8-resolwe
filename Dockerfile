@@ -150,6 +150,21 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     rm -r hisat2-$HISAT_VERSION/example && \
     echo "PATH=\$PATH:~/hisat2-$HISAT_VERSION" >> ~/.bash_profile && \
 
+    echo "Installing STAR..." && \
+    STAR_VERSION=2.5.2a && \
+    STAR_SHA1SUM=65f3fb6aca880caac942dfa9285276fba71edf17 && \
+    wget -q https://github.com/alexdobin/STAR/archive/$STAR_VERSION.tar.gz -O STAR.tar.gz && \
+    echo "$STAR_SHA1SUM *STAR.tar.gz" | sha1sum -c - && \
+    mkdir STAR-$STAR_VERSION && \
+    tar -xf STAR.tar.gz --directory STAR-$STAR_VERSION --strip-components=1 && \
+    rm STAR.tar.gz && \
+    rm -r STAR-$STAR_VERSION/doc && \
+    rm -r STAR-$STAR_VERSION/source && \
+    rm -r STAR-$STAR_VERSION/extras && \
+    rm -r STAR-$STAR_VERSION/bin/Linux_x86_64 && \
+    rm -r STAR-$STAR_VERSION/bin/MacOSX_x86_64 && \
+    echo "PATH=\$PATH:~/STAR-$STAR_VERSION/bin/Linux_x86_64_static" >> ~/.bash_profile && \
+
     echo "Installing R packages..." && \
     sudo Rscript --slave --no-save --no-restore-history -e " \
       package_list = c( \
