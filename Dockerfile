@@ -174,6 +174,16 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     rm -r STAR-$STAR_VERSION/bin/MacOSX_x86_64 && \
     echo "PATH=\$PATH:~/STAR-$STAR_VERSION/bin/Linux_x86_64_static" >> ~/.bash_profile && \
 
+    echo "Installing kentUtils..." && \
+    KU_VERSION=302.1.0 && \
+    KU_SHA1SUM=65f3fb6aca880caac942dfa9285276fba71edf17 && \
+    wget -q https://codeload.github.com/ENCODE-DCC/kentUtils/zip/v$KU_VERSION -O kentUtils.zip && \
+    echo "$KU_SHA1SUM *kentUtils.zip" | sha1sum -c - && \
+    unzip -q kentUtils.zip && \
+    rm kentUtils.zip && \
+    rm -r kentUtils-$KU_VERSION/src
+    echo "PATH=\$PATH:~/kentUtils-302.1.0/bin/linux.x86_64" >> ~/.bash_profile && \
+
     echo "Installing R packages..." && \
     sudo Rscript --slave --no-save --no-restore-history -e " \
       package_list = c( \
