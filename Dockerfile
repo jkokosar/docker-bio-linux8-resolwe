@@ -48,6 +48,8 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
       # chemut requires a newer version of r-cran-stringi
       r-cran-stringi \
       tabix \
+      # required for building matplotlib (deepTools requires a newer version of matplotlib)
+      libfreetype6-dev \
       && \
 
     echo "Installing gosu..." && \
@@ -90,6 +92,9 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
 
     echo "Installing cutadapt..." && \
     sudo pip install cutadapt==1.9.1 && \
+
+    echo "Installing deepTools..." && \
+    sudo pip install deeptools==2.3.1 && \
 
     echo "Installing JBrowse..." && \
     JBROWSE_VERSION=1.12.0 && \
