@@ -163,6 +163,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
       package_list = c( \
         'Rsamtools', \
         'reshape2', \
+        'rtracklayer', \
         'seqinr', \
         'stringr', \
         'tidyr' \
