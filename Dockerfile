@@ -91,6 +91,10 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     echo "Installing cutadapt..." && \
     sudo pip install cutadapt==1.9.1 && \
 
+    echo "Installing biox..." && \
+    sudo pip install hg+https://bitbucket.org/mstajdohar/biox@9bcf3b0#egg=biox && \
+    sudo mv /usr/local/lib/python2.7/dist-packages/biox/config_example.py /usr/local/lib/python2.7/dist-packages/biox/config.py && \
+
     echo "Installing JBrowse..." && \
     JBROWSE_VERSION=1.12.0 && \
     JBROWSE_SHA1SUM=c74adeb9840ae5c9348e59a9054fa93cf68d0402 && \
