@@ -150,6 +150,17 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     rm -r hisat2-$HISAT_VERSION/example && \
     echo "PATH=\$PATH:~/hisat2-$HISAT_VERSION" >> ~/.bash_profile && \
 
+    echo "Installing kentUtils..." && \
+    KU_VERSION=302.1.0 && \
+    KU_SHA1SUM=810cec2881472090f8d92f1f07adf8703bcda5ae && \
+    wget -q https://codeload.github.com/ENCODE-DCC/kentUtils/zip/v$KU_VERSION -O kentUtils.zip && \
+    echo "$KU_SHA1SUM *kentUtils.zip" | sha1sum -c - && \
+    unzip -q kentUtils.zip && \
+    rm kentUtils.zip && \
+    rm -r kentUtils-$KU_VERSION/src && \
+    find kentUtils-$KU_VERSION/bin/linux.x86_64 -type f -not -name 'bedGraphToBigWig' -print0 | xargs -0 rm -- && \
+    echo "PATH=\$PATH:~/kentUtils-$KU_VERSION/bin/linux.x86_64" >> ~/.bash_profile && \
+
     echo "Installing R packages..." && \
     sudo Rscript --slave --no-save --no-restore-history -e " \
       package_list = c( \
