@@ -127,6 +127,9 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     sudo pip install hg+https://bitbucket.org/mstajdohar/biox@9bcf3b0#egg=biox && \
     sudo mv /usr/local/lib/python2.7/dist-packages/biox/config_example.py /usr/local/lib/python2.7/dist-packages/biox/config.py && \
 
+    echo "Installing pysam..." && \
+    sudo pip install pysam==0.9.1.4 && \
+
     echo "Installing JBrowse..." && \
     JBROWSE_VERSION=1.12.0 && \
     JBROWSE_SHA1SUM=c74adeb9840ae5c9348e59a9054fa93cf68d0402 && \
