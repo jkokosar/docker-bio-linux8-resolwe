@@ -14,6 +14,8 @@ This project adheres to [Semantic Versioning](http://semver.org/).
   the container and passing the host user's user and group IDs to the container
   via environment variables.
 - gosu 1.9.
+- Bioconductor R packages:
+  - DESeq2
 
 ### Changed
 
