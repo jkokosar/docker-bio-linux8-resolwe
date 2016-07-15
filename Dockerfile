@@ -150,6 +150,21 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     rm -r hisat2-$HISAT_VERSION/example && \
     echo "PATH=\$PATH:~/hisat2-$HISAT_VERSION" >> ~/.bash_profile && \
 
+    echo "Installing TransDecoder..." && \
+    TD_VERSION=3.0.0 && \
+    TD_SHA1SUM=6c798327cd41773b34b36152162623613a3fdda9 && \
+    wget -q https://codeload.github.com/TransDecoder/TransDecoder/tar.gz/v$TD_VERSION -O TransDecoder.tar.gz && \
+    echo "$TD_SHA1SUM *TransDecoder.tar.gz" | sha1sum -c - && \
+    mkdir TransDecoder-$TD_VERSION && \
+    tar -xf TransDecoder.tar.gz --directory TransDecoder-$TD_VERSION --strip-components=1 && \
+    rm TransDecoder.tar.gz && \
+    cd TransDecoder-$TD_VERSION && \
+    make && \
+    rm -r sample_data && \
+    cd .. && \
+    echo "PATH=\$PATH:~/TransDecoder-$TD_VERSION" >> ~/.bash_profile && \
+    echo "PATH=\$PATH:~/TransDecoder-$TD_VERSION/util" >> ~/.bash_profile && \
+
     echo "Installing R packages..." && \
     sudo Rscript --slave --no-save --no-restore-history -e " \
       package_list = c( \
