@@ -150,6 +150,19 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     rm -r hisat2-$HISAT_VERSION/example && \
     echo "PATH=\$PATH:~/hisat2-$HISAT_VERSION" >> ~/.bash_profile && \
 
+    echo "Installing gotea..." && \
+    GOTEA_VERSION=0.0.2 && \
+    GOTEA_SHA1SUM=5dd7724bfb8d05be0238957ef719479804dca961 && \
+    wget -q https://codeload.github.com/genialis/gotea/tar.gz/$GOTEA_VERSION -O gotea.tar.gz && \
+    echo "$GOTEA_SHA1SUM *gotea.tar.gz" | sha1sum -c - && \
+    mkdir gotea-$GOTEA_VERSION && \
+    tar -xf gotea.tar.gz --directory gotea-$GOTEA_VERSION --strip-components=1 && \
+    rm gotea.tar.gz && \
+    cd gotea-$GOTEA_VERSION && \
+    make && \
+    cd .. && \
+    echo "PATH=\$PATH:~/gotea-$GOTEA_VERSION" >> ~/.bash_profile && \
+
     echo "Installing R packages..." && \
     sudo Rscript --slave --no-save --no-restore-history -e " \
       package_list = c( \
