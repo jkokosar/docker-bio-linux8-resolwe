@@ -49,6 +49,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
       # chemut requires a newer version of r-cran-stringi
       r-cran-stringi \
       tabix \
+      libgsl0-dev \
       && \
 
     echo "Installing gosu..." && \
@@ -150,6 +151,19 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     rm -r hisat2-$HISAT_VERSION/doc && \
     rm -r hisat2-$HISAT_VERSION/example && \
     echo "PATH=\$PATH:~/hisat2-$HISAT_VERSION" >> ~/.bash_profile && \
+
+    echo "Installing ea-utils..." && \
+    EA_UTILS_VERSION=1.1.2-537 && \
+    EA_UTILS_SHA1SUM=688bddb1891ed186be0070d0d581816a35f7eb4e && \
+    wget -q https://ea-utils.googlecode.com/files/ea-utils.${EA_UTILS_VERSION}.tar.gz -O ea-utils.tar.gz && \
+    echo "$EA_UTILS_SHA1SUM *ea-utils.tar.gz" | sha1sum -c - && \
+    mkdir ea-utils-$EA_UTILS_VERSION && \
+    tar -xf ea-utils.tar.gz --directory ea-utils-$EA_UTILS_VERSION --strip-components=1 && \
+    rm ea-utils.tar.gz && \
+    cd ea-utils-$EA_UTILS_VERSION && \
+    make && \
+    cd .. && \
+    echo "PATH=\$PATH:~/ea-utils-$EA_UTILS_VERSION" >> ~/.bash_profile && \
 
     echo "Installing R packages..." && \
     sudo Rscript --slave --no-save --no-restore-history -e " \
