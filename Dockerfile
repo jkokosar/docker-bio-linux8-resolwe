@@ -166,7 +166,19 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
         'reshape2', \
         'seqinr', \
         'stringr', \
-        'tidyr' \
+        'tidyr', \
+        'pd.hugene.2.0.st', \
+        'pd.mogene.2.0.st', \
+        'pd.mogene.1.0.st.v1', \
+        'moe430acdf', \
+        'hgu133plus2cdf', \
+        'mouse4302cdf', \
+        'mogene10stv1cdf', \
+        'mirna20cdf', \
+        'hgu95av2cdf', \
+        'hgu133acdf', \
+        'hgu133a2cd', \
+        'hthgu133acd' \
       ); \
       source('http://www.bioconductor.org/biocLite.R'); \
       biocLite(package_list) \

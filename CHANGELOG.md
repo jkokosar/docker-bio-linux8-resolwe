@@ -15,6 +15,19 @@ This project adheres to [Semantic Versioning](http://semver.org/).
   via environment variables.
 - gosu 1.9.
 - scikit-learn 0.14.1.
+- Bioconductor R packages:
+  - pd.hugene.2.0.st
+  - pd.mogene.2.0.st
+  - pd.mogene.1.0.st.v1
+  - moe430acdf
+  - hgu133plus2cdf
+  - mouse4302cdf
+  - mogene10stv1cdf
+  - mirna20cdf
+  - hgu95av2cdf
+  - hgu133acdf
+  - hgu133a2cd
+  - hthgu133acd
 
 ### Changed
 
