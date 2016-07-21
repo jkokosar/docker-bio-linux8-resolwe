@@ -166,7 +166,8 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
         'reshape2', \
         'seqinr', \
         'stringr', \
-        'tidyr' \
+        'tidyr', \
+        'makecdfenv' \
       ); \
       source('http://www.bioconductor.org/biocLite.R'); \
       biocLite(package_list) \
