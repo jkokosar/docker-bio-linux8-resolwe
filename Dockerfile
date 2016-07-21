@@ -49,6 +49,11 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
       # chemut requires a newer version of r-cran-stringi
       r-cran-stringi \
       tabix \
+      # required for compiling R package arrayQualityMetrics
+      libxt-dev \
+      libcairo2-dev \
+      xml2 \
+      libcurl3 \
       && \
 
     echo "Installing gosu..." && \
@@ -166,7 +171,8 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
         'reshape2', \
         'seqinr', \
         'stringr', \
-        'tidyr' \
+        'tidyr', \
+        'arrayQualityMetrics' \
       ); \
       source('http://www.bioconductor.org/biocLite.R'); \
       biocLite(package_list) \
