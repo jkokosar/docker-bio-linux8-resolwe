@@ -110,6 +110,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
 
     echo "Installing HTSeq..." && \
     sudo pip install htseq==0.6.1p1 && \
+<<<<<<< 18b0a10fa218bbcb8a6ae6973c8d6f1c4b0aae9a
 
     echo "Installing pysam..." && \
     sudo pip install pysam==0.9.1.4 && \
@@ -126,9 +127,24 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     echo "Installing biox..." && \
     sudo pip install hg+https://bitbucket.org/mstajdohar/biox@9bcf3b0#egg=biox && \
     sudo mv /usr/local/lib/python2.7/dist-packages/biox/config_example.py /usr/local/lib/python2.7/dist-packages/biox/config.py && \
+=======
+>>>>>>> Release preview
 
     echo "Installing pysam..." && \
     sudo pip install pysam==0.9.1.4 && \
+
+    echo "Installing xlrd..." && \
+    sudo pip install xlrd==1.0.0 && \
+
+    echo "Installing Orange..." && \
+    sudo pip install orange==2.7.8 && \
+
+    echo "Installing deepTools..." && \
+    sudo pip install deeptools==2.3.1 && \
+
+    echo "Installing biox..." && \
+    sudo pip install hg+https://bitbucket.org/mstajdohar/biox@9bcf3b0#egg=biox && \
+    sudo mv /usr/local/lib/python2.7/dist-packages/biox/config_example.py /usr/local/lib/python2.7/dist-packages/biox/config.py && \
 
     echo "Installing JBrowse..." && \
     JBROWSE_VERSION=1.12.0 && \
