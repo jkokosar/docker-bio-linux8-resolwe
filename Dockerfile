@@ -162,6 +162,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     echo "Installing Bioconductor R packages..." && \
     sudo Rscript --slave --no-save --no-restore-history -e " \
       package_list = c( \
+        'baySeq', \
         'Rsamtools', \
         'reshape2', \
         'seqinr', \
