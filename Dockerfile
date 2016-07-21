@@ -151,6 +151,17 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     rm -r hisat2-$HISAT_VERSION/example && \
     echo "PATH=\$PATH:~/hisat2-$HISAT_VERSION" >> ~/.bash_profile && \
 
+    echo "Installing Prinseq-LITE..." && \
+    PRINSEQ_VERSION=0.20.4 && \
+    PRINSEQ_SHA1SUM=b8560cdc059e9b4cbb1bab5142de29bde5d33f61 && \
+    wget -q http://sourceforge.net/projects/prinseq/files/standalone/prinseq-lite-${PRINSEQ_VERSION}.tar.gz/download -O prinseq-lite.tar.gz && \
+    echo "$PRINSEQ_SHA1SUM *prinseq-lite.tar.gz" | sha1sum -c - && \
+    mkdir prinseq-lite-$PRINSEQ_VERSION && \
+    tar -xf prinseq-lite.tar.gz --directory prinseq-lite-$PRINSEQ_VERSION --strip-components=1 && \
+    rm prinseq-lite.tar.gz && \
+    find prinseq-lite-0.20.4 -iname *.pl -type f | xargs chmod 0755 && \
+    echo "PATH=\$PATH:~/prinseq-lite-$PRINSEQ_VERSION" >> ~/.bash_profile && \
+
     echo "Installing R packages..." && \
     sudo Rscript --slave --no-save --no-restore-history -e " \
       package_list = c( \
