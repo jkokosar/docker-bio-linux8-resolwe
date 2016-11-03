@@ -61,6 +61,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
       libcurl3 \
       trimmomatic \
       ea-utils \
+      sra-toolkit \
       && \
 
     echo "Installing gosu..." && \
