@@ -291,6 +291,7 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     rm bamliquidator.tar.gz && \
     echo "PATH=\$PATH:~/bamliquidator-$BAMLIQUIDATOR_VERSION/bamliquidator_internal" >> ~/.bash_profile && \
     echo "PATH=\$PATH:~/bamliquidator-$BAMLIQUIDATOR_VERSION/bamliquidator_internal/bamliquidatorbatch" >> ~/.bash_profile && \
+    sudo ln -s ~/bamliquidator-$BAMLIQUIDATOR_VERSION/bamliquidator_internal/bamliquidatorbatch/bamliquidator_batch.py /usr/local/bin/bamliquidator_batch && \
 
     echo "Installing Prinseq-LITE..." && \
     PRINSEQ_VERSION=0.20.4 && \
