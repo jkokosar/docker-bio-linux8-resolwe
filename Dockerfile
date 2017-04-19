@@ -154,8 +154,8 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     sudo pip install bokeh==0.9.3 && \
 
     echo "Installing resdk..." && \
-    sudo pip install resdk==1.7.0 && \
-    sudo pip3 install resdk==1.7.0 && \
+    sudo pip install resdk==1.9.0 && \
+    sudo pip3 install resdk==1.9.0 && \
 
     echo "Installing biox..." && \
     sudo pip install hg+https://bitbucket.org/mstajdohar/biox@9bcf3b0#egg=biox && \
