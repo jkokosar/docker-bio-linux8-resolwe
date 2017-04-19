@@ -380,11 +380,12 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     echo "PATH=\$PATH:~/bbmap/" >> ~/.bash_profile && \
 
     echo "Installing primerclip..." && \
-    mkdir primerclip && \
-    cd primerclip && \
-    wget -q "https://data.genialis.com/repo/3f3f14d1-5100-46d5-af7b-abca7ff4a48f/292c647949ed795d6c73d8088cb839586e2287c6/?file_name=primerclip-v1&op=download&t=467d0f7b85&p=/tools/primerclip-v1" -O primerclip-v1 && \
-    chmod +x primerclip-v1 && \
-    echo "PATH=\$PATH:~/primerclip/" >> ~/.bash_profile && \
+    PRIMERCLIP_VERSION=2 && \
+    mkdir primerclip-v${PRIMERCLIP_VERSION} && \
+    cd primerclip-v${PRIMERCLIP_VERSION} && \
+    wget -q "https://data.genialis.com/repo/3f3f14d1-5100-46d5-af7b-abca7ff4a48f/292c647949ed795d6c73d8088cb839586e2287c6/?file_name=primerclip-v2&op=download&t=ca7225aa30&p=/tools/primerclip-v2" -O primerclip && \
+    chmod +x primerclip && \
+    echo "PATH=\$PATH:~/primerclip-v${PRIMERCLIP_VERSION}/" >> ~/.bash_profile && \
     cd .. && \
 
     echo "Installing Bioconductor R packages..." && \
