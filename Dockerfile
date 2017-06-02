@@ -350,9 +350,9 @@ RUN export DEBIAN_FRONTEND=noninteractive && \
     echo "PATH=\$PATH:~/moabs/bin" >> ~/.bash_profile && \
 
     echo "installing snpEff..." && \
-    wget http://sourceforge.net/projects/snpeff/files/snpEff_latest_core.zip && \
-    unzip snpEff_latest_core.zip && \
-    rm snpEff_latest_core.zip && \
+    wget http://sourceforge.net/projects/snpeff/files/snpEff_v4_3k_core.zip && \
+    unzip snpEff_v4_3k_core.zip && \
+    rm snpEff_v4_3k_core.zip && \
     cd snpEff && \
     java -jar snpEff.jar download GRCh37.75 -v && \
     cd .. && \
